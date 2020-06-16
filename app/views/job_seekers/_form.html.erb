@@ -1,0 +1,21 @@
+<%= form_for( @job_seeker , remote: true) do |f| %>
+<%=f.label :name%>
+<%=f.text_field :name%>
+<%=f.label :email%>
+<%=f.text_field :email%>
+<%=f.label :password %>
+<%=f.password_field :password%>
+<%=f.label :address%>
+<%=f.text_field :address%>
+<%=f.label :profile_picture%>
+<%=f.text_field :profile_picture%>
+<%=f.label :phone%>
+<%=f.text_field :phone%>
+<%=f.label :resume_link%>
+<%=f.text_field :resume_link%>
+<%=f.label :website_link%>
+<%=f.text_field :website_link%>
+<%=f.label :title_tagline%>
+<%=f.text_field :title_tagline%>
+<%=f.submit%>
+<% end %>

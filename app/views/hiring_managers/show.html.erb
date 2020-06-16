@@ -1,0 +1,17 @@
+<h1>Hiring Manager <h1>
+ 
+ <h3>name: <%=@hiring_manager.name%></h3>
+ <h3>email: <%=@hiring_manager.email%></h3>
+ <h3>company: <%=@hiring_manager.company%></h3>
+ <h3>phone: <%=@hiring_manager.phone%></h3>
+ <h3>addres: <%=@hiring_manager.address%></h3>
+ <h3>fax: <%=@hiring_manager.fax%></h3>
+
+<br/>
+<br/>
+<h1>Job Listings</h1>
+<ul>
+  <%@hiring_manager.job_listings.each do |listing|%>
+    <li><%= link_to  listing.title, listing %> # of applications <span><%=listing.job_applications.count%></span></li>
+  <%end%>
+<ul>
