@@ -10,6 +10,7 @@ class JobListingsController < ApplicationController
 
   def new 
     @job_listing = JobListing.new
+    @job_listing.hiring_manager = @current_user
   end 
 
   def create 
