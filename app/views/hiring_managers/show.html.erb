@@ -6,7 +6,10 @@
  <h3>phone: <%=@hiring_manager.phone%></h3>
  <h3>addres: <%=@hiring_manager.address%></h3>
  <h3>fax: <%=@hiring_manager.fax%></h3>
-
+ <br>
+<%= link_to  "Create New Job Listing", new_job_listing_path %>
+<%= link_to  "Edit", edit_hiring_manager_path(@hiring_manager) %>
+<%= button_to  "Delete", @hiring_manager, method: :delete %>
 <br/>
 <br/>
 <h1>Job Listings</h1>
