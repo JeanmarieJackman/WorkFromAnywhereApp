@@ -12,11 +12,15 @@ class JobSeekersController < ApplicationController
 
   def new 
     @job_seeker = JobSeeker.new 
+    @job_seeker.password = session[:registering_password] 
+    @job_seeker.email = session[:registering_email]
   end
 
   def create 
     @job_seeker = JobSeeker.new(job_seeker_params)
     if @job_seeker.save
+      session[:user_id] = @job_seeker.id
+      session[:user_type] = "JS"
       redirect_to job_seeker_path(@job_seeker)
     else
       flash[erros] = @job_seeker.errors.full_messages

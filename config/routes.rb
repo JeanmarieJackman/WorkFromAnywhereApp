@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   get '/', to: "home#welcome"
-  get '/sign_in', to: "home#sign_in"
-  get '/sign_out', to: "home#sign_out"
+  get '/login_screen', to: "home#login_screen"
+  post '/redirecting', to: "home#redirecting"
+  post '/login', to: "home#login"
+  post '/logout', to: "home#logout"
   resources :job_applications
   resources :job_listings
   resources :hiring_managers

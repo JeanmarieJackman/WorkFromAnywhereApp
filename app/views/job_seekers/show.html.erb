@@ -1,4 +1,4 @@
-<h1>Profile<h1>
+<h2>Profile<h2>
 <img src="<%=@job_seeker.profile_picture%>">
 <br/>
 <h3>Name: <%=@job_seeker.name%></h3>
@@ -11,20 +11,14 @@
 
 
 
-<%
-=begin%>
- only visible if current job seeker is logged in
- revisit after authentication class is done
-<%
-=end%>
-<%if true%>
+<%if @user_type == "JS"%>
 
 <%= link_to  "Explore Jobs", job_listings_path%><br/>
 <%= link_to  "Edit", edit_job_seeker_path(@job_seeker) %>
 <%= button_to  "Delete", @job_seeker, method: :delete %>
 
 
-<h1>Jobs Applied</h1>
+<h2>Jobs Applied</h2>
 <ul>
   <%@job_seeker.job_listings.each do |job|%>
     <li>

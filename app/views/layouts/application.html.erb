@@ -4,12 +4,33 @@
     <title>WorkFromAnywhere</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+      h1 {
+        text-align: center;
+        font-family:'Cabin';
+        font-weight: 700;
+        color:#0D2A40;
+        padding: 20px;
+        }
+      h2 {
+        text-align: center;
+        font-family:'Cabin';
+        font-weight: 400;
+        color:#0D2A40;
+      
+        }
+    </style>
 
-  <body>
-    <%= yield %>
-  </body>
+  </head>
+  <div class ="container">
+    <body>
+      <h1>Work From Anywhere</h1>
+
+      <%= yield %>
+    </body>
+  </div>
 </html>

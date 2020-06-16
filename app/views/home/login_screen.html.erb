@@ -1,0 +1,29 @@
+
+<h3>Create Profile</h3>
+
+<%= form_tag("/redirecting") do %>
+  <%= label_tag (:email) %>
+  <%= text_field_tag (:email) %>
+  <%= label_tag (:password) %>
+  <%= password_field_tag (:password) %>
+  <%= radio_button_tag  :user_type, "Hiring Manager" %>
+  <%= label_tag (:Hiring_Manager) %>
+  <%= radio_button_tag  :user_type, "Job Seeker" %>
+  <%= label_tag (:Job_seeker) %>
+  <%= submit_tag "Submit" %>
+  
+<% end %>
+<br>
+<br>
+<h3>Log in to Existing</h3>
+<%= form_tag( "/login" ) do%>
+  <%= label_tag (:email) %>
+  <%= text_field_tag (:email) %>
+  <%= label_tag (:password) %>
+  <%= password_field_tag (:password) %>
+  <%= radio_button_tag  :user_type, "Hiring Manager" %>
+  <%= label_tag (:Hiring_Manager) %>
+  <%= radio_button_tag  :user_type, "Job Seeker" %>
+  <%= label_tag (:Job_seeker) %>
+   <%= submit_tag "Submit" %>
+<% end %>

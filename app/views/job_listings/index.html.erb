@@ -1,0 +1,6 @@
+<h3>Job listings</h3>
+<ul>
+<%@job_listings.each do |job|%>
+ <li><%= link_to  job.title, job %></li>
+<%end%>
+</ul>
