@@ -16,13 +16,15 @@
 <%= button_to  "Delete Profile", @hiring_manager, method: :delete %>
 <br/>
 <br/>
-<h1>Job Listings</h1>
-<ul>
-  <%@hiring_manager.job_listings.each do |listing|%>
-    <li>
-    <%= link_to  listing.title, listing %> # of applications <span><%=listing.job_applications.count%></span> 
-    <%="**Filled**" if listing.job_filled_status%>
-    </li>
-  <%end%>
-<ul>
+<%if @hiring_manager.job_listings.count > 0 %>
+  <h1>Job Listings</h1>
+  <ul>
+    <%@hiring_manager.job_listings.each do |listing|%>
+      <li>
+      <%= link_to  listing.title, listing %> # of applications <span><%=listing.job_applications.count%></span> 
+      <%="**Filled**" if listing.job_filled_status%>
+      </li>
+    <%end%>
+  <ul>
+<%end%>
 <%end%>

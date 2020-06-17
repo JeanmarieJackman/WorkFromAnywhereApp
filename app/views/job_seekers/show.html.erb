@@ -19,14 +19,14 @@
 <% end %>
 <%= button_to  "Delete Profile", @job_seeker, method: :delete %>
 
-
-<h2>Jobs Applied</h2>
-<ul>
-  <%@job_seeker.job_listings.each do |job|%>
-    <li>
-      <%= link_to  job.title, job %>
-    </li>
-  <%end%>
-</ul>
-
+<%if job_seeker.job_listings.count > 0 %>
+  <h2>Jobs Applied</h2>
+  <ul>
+    <%@job_seeker.job_listings.each do |job|%>
+      <li>
+        <%= link_to  job.title, job %>
+      </li>
+    <%end%>
+  </ul>
+<%end%>
 <%end%>
