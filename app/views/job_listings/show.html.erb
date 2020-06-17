@@ -12,6 +12,8 @@
     <%if @job_listing.job_filled_status%>
       <h3>Job has been filled already</h3>
     <%else%>
+      <%= form_tag( 'path' , remote: true) do |f| %>
+      <% end %>
       <%= button_to  "Fill Position",fill_position_path(@job_listing)%>
     <%end%>
 

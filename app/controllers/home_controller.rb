@@ -9,7 +9,7 @@ class HomeController < ApplicationController
 
   def redirecting
     session[:registering_email] = params[:email]
-    session[:registering_password] = params[:email]
+    session[:registering_password] = params[:password]
     if(params[:user_type]== "Hiring Manager")
       redirect_to new_hiring_manager_path
     elsif (params[:user_type]== "Job Seeker")
