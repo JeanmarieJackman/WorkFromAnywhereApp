@@ -34,7 +34,12 @@
 
 </body>
 </html>
-<div class="container-fluid text-center">    
+<div class="container-fluid text-center">  
+    <%if flash[:errors]%>
+      <%flash[:errors].each do |err|%>
+        <p><%=err%></p>
+      <%end%>
+    <%end%>
       <br><br><br><br><br><br><br><br>
     <a class="button" href="/job_listings">I am a Job Seeker</a>&emsp;&emsp;&emsp;&emsp;&emsp;<a class="button" href="/job_seekers" >I am a Hiring Manager</a>
       

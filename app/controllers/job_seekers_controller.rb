@@ -1,5 +1,5 @@
 class JobSeekersController < ApplicationController
-
+  skip_before_action :auth_user, only: [:index]
   before_action :get_job_seeker,only: [:show,:edit,:update,:destroy]
   
   def index 
