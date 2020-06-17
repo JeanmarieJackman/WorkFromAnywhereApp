@@ -11,6 +11,8 @@
  <br>
 <%= link_to  "Create New Job Listing", new_job_listing_path %>
 <%= link_to  "Edit Profile", edit_hiring_manager_path(@hiring_manager) %>
+<%= form_tag( 'path' , remote: true) do %>
+<% end %>
 <%= button_to  "Delete Profile", @hiring_manager, method: :delete %>
 <br/>
 <br/>

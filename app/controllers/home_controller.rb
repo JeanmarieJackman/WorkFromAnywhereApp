@@ -24,6 +24,7 @@ class HomeController < ApplicationController
         session[:user_id] = job_seeker.id
         session[:user_type] = "JS"
         redirect_to job_seeker_path(job_seeker)
+        return 
       else
         flash[:errors] = ["Credentials could not be found"]
       end
@@ -33,6 +34,7 @@ class HomeController < ApplicationController
         session[:user_id] = hiring_manager.id
         session[:user_type] = "HR"
         redirect_to hiring_manager_path(hiring_manager)
+        return
       else
         flash[:errors] = ["Credentials could not be found"]
       end
@@ -41,7 +43,9 @@ class HomeController < ApplicationController
   end
 
   def logout
-
+    session.delete(:user_id)
+    session.delete(:user_type)
+    redirect_to '/'
   end
  
 end

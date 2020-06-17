@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get '/login_screen', to: "home#login_screen"
   post '/redirecting', to: "home#redirecting"
   post '/login', to: "home#login"
-  post '/logout', to: "home#logout"
+  get '/logout', to: "home#logout"
   post 'job_listings/fill_position/:id',to: "job_listings#fill_position", as:"fill_position"
   resources :job_applications
   resources :job_listings

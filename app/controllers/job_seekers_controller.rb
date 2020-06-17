@@ -40,7 +40,7 @@ class JobSeekersController < ApplicationController
 
   def destroy
     @job_seeker.destroy
-    redirect_to job_seekers_path
+    redirect_to logout_path
   end
 
   private 

@@ -15,6 +15,8 @@
 
 <%= link_to  "Explore Jobs", job_listings_path%><br/>
 <%= link_to  "Edit Profile", edit_job_seeker_path(@job_seeker) %>
+<%= form_tag( 'path' , remote: true) do %>
+<% end %>
 <%= button_to  "Delete Profile", @job_seeker, method: :delete %>
 
 

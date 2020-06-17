@@ -1,6 +1,7 @@
 
 <h3>Create Profile</h3>
-
+<%= form_tag("/redirecting") do %>
+<%end%>
 <%= form_tag("/redirecting") do %>
   <%= label_tag (:email) %>
   <%= email_field_tag :email,nil,:required => true %>
@@ -11,7 +12,6 @@
   <%= radio_button_tag  :user_type, "Job Seeker",:required => true %>
   <%= label_tag (:Job_seeker) %>
   <%= submit_tag "Submit" %>
-  
 <% end %>
 <br>
 <br>
