@@ -6,30 +6,85 @@
     <%= csp_meta_tag %>
     
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;700&display=swap" rel="stylesheet">
     <style>
       h1 {
-        text-align: center;
-        font-family:'Cabin';
-        font-weight: 700;
-        color:#0D2A40;
-        padding: 20px;
-        }
+      text-align: center;
+      font-family:"Arial Black", Gadget, sans-serif;
+      font-size: xx-large;
+      font-weight: 900;
+      color:#0D2A40;
+      padding-top: 30px;
+      padding-bottom: 20px;
+      }
       h2 {
-        text-align: center;
-        font-family:'Cabin';
-        font-weight: 400;
-        color:#0D2A40;
-      
-        }
-    </style>
+      text-align: center;
+      font-family:"Arial Black", Gadget, sans-serif;
+      font-size: x-large;
+      font-weight: 700;
+      color:#0D2A40;
+      padding: 30px;
+      }
+      /* navbar */
+      .navbar {
+      min-height: 38px;
+      background-color: #FFFFFF;
+      opacity: 0.5
+      }
 
+          
+      /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+      .row.content {
+        height: 700px;}
+
+      .col-sm-8 {
+        background: #FFFFFF;
+        opacity: 0.6;
+      }
+      
+
+      /* Set  100% height */
+      .sidenav {
+      padding-top: 20px;
+      height: 100%;
+      }
+      /* On small screens, set height to 'auto' for sidenav and grid */
+      @media screen and (max-width: 767px) {
+        .sidenav {
+          height: auto;
+          padding: 15px;}
+          
+        .row.content {height:auto;}
+        }
+    
+      
+    </style>
   </head>
-  <div class ="container">
-    <body>
-      <h1>Work From Anywhere CSS</h1>
-      <%= yield %>
-    </body>
+  <body>
+
+  <nav class="navbar navbar-light bg-light justify-content-between">
+    <a class="navbar-brand" href="/">Welcome</a>
+    <form class="form-inline">
+      <a class="nav-link" href="/login_screen">Login | Register</a>
+  </nav>
+
+  <div class="container-fluid text-center">    
+   <h1>Work From Anywhere</h1>
+    <div class="row content">
+      <div class="col-sm-2 sidenav">
+      </div>
+      <div class="col-sm-8 text-center"> 
+       
+          <%= yield %>
+        
+      </div>
+      <div class="col-sm-2 sidenav">
+      </div>
+    </div>
   </div>
+  
+
+</body>
 </html>
