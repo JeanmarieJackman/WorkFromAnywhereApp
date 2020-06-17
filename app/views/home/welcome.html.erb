@@ -1,8 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.button {
+  display: inline-block;
+  padding: 25px 35px;
+  font-size: 18px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #FFFFFF;
+  background-color: #0D2A40;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
 
-<%= link_to  "Login | Register", login_screen_path%>
-<br>
-<br>
-<br>
-<%= link_to  "I am a Job Seeker", job_listings_path %>
-<%= link_to  "I am a Hiring Manager", job_seekers_path %>
+.button:hover {background-color: #FFFFFF}
+
+.button:active {
+  background-color: #666633;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+</style>
+</head>
+<body>
+
+<h2></h2>
+
+
+</body>
+</html>
+<div class="container-fluid text-center">    
+      <br><br><br><br><br><br><br><br>
+    <a class="button" href="/job_listings">I am a Job Seeker</a>&emsp;&emsp;&emsp;&emsp;&emsp;<a class="button" href="/job_seekers" >I am a Hiring Manager</a>
+      
+  </div>
+  
+<%#= link_to  "I am a Job Seeker", job_listings_path %>
+<%#= link_to  "I am a Hiring Manager", job_seekers_path %>
 
