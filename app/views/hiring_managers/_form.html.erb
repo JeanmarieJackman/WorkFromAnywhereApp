@@ -1,16 +1,16 @@
 <%= form_for( @hiring_manager , remote: true) do |f| %>
   <%=f.label :name%>
-  <%=f.text_field :name%>
+  <%=f.text_field :name, :required => true%>
   <%=f.label :email%>
-  <%=f.text_field :email%>
+  <%=f.text_field :email,:required => true %>
   <%=f.label :password%>
-  <%=f.password_field :password%>
+  <%=f.password_field :password, :required => true%>
   <%=f.label :company%>
-  <%=f.text_field :company%>
+  <%=f.text_field :company, :required => true%>
   <%=f.label :phone%>
-  <%=f.text_field :phone%>
+  <%=f.text_field :phone,:required => true%>
   <%=f.label :address%>
-  <%=f.text_field :address%>
+  <%=f.text_field :address,:required => true%>
   <%=f.label :fax%>
   <%=f.text_field :fax%>
   <%=f.submit%>

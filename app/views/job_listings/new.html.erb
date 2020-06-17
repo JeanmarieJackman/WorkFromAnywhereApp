@@ -1,10 +1,11 @@
+<h1>New Job Listing Form</h1>
 <%= form_for( @job_listing , remote: true) do |f| %>
   <%=f.label :title%>
-  <%=f.text_field :title%>
+  <%=f.text_field :title, :required => true%>
   <%=f.label :description%>
-  <%=f.text_area :description%>
+  <%=f.text_area :description, :required => true%>
   <%=f.label :duration%>
-  <%=f.text_field :duration%>
+  <%=f.text_field :duration, :required => true%>
   <%= hidden_field_tag "job_listing[hiring_manager_id]", @current_user.id %>
   
   <%=f.submit%>
