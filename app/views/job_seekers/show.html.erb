@@ -14,8 +14,8 @@
 <%if @user_type == "JS"%>
 
 <%= link_to  "Explore Jobs", job_listings_path%><br/>
-<%= link_to  "Edit", edit_job_seeker_path(@job_seeker) %>
-<%= button_to  "Delete", @job_seeker, method: :delete %>
+<%= link_to  "Edit Profile", edit_job_seeker_path(@job_seeker) %>
+<%= button_to  "Delete Profile", @job_seeker, method: :delete %>
 
 
 <h2>Jobs Applied</h2>

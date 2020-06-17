@@ -1,16 +1,16 @@
 <%= form_for( @job_seeker , remote: true) do |f| %>
 <%=f.label :name%>
-<%=f.text_field :name%>
+<%=f.text_field :name,:required => true%>
 <%=f.label :email%>
-<%=f.text_field :email%>
+<%=f.text_field :email,:required => true%>
 <%=f.label :password %>
-<%=f.password_field :password%>
+<%=f.password_field :password,:required => true%>
+<%=f.label :phone%>
+<%=f.text_field :phone,:required => true%>
 <%=f.label :address%>
-<%=f.text_field :address%>
+<%=f.text_field :address,:required => true%>
 <%=f.label :profile_picture%>
 <%=f.text_field :profile_picture%>
-<%=f.label :phone%>
-<%=f.text_field :phone%>
 <%=f.label :resume_link%>
 <%=f.text_field :resume_link%>
 <%=f.label :website_link%>

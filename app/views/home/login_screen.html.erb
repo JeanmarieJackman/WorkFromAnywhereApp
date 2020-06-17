@@ -3,27 +3,32 @@
 
 <%= form_tag("/redirecting") do %>
   <%= label_tag (:email) %>
-  <%= text_field_tag (:email) %>
+  <%= email_field_tag :email,nil,:required => true %>
   <%= label_tag (:password) %>
-  <%= password_field_tag (:password) %>
-  <%= radio_button_tag  :user_type, "Hiring Manager" %>
+  <%= password_field_tag :password,nil,:required => true %>
+  <%= radio_button_tag  :user_type, "Hiring Manager",:required => true %>
   <%= label_tag (:Hiring_Manager) %>
-  <%= radio_button_tag  :user_type, "Job Seeker" %>
+  <%= radio_button_tag  :user_type, "Job Seeker",:required => true %>
   <%= label_tag (:Job_seeker) %>
   <%= submit_tag "Submit" %>
   
 <% end %>
 <br>
 <br>
+<%if flash[:errors]%>
+  <%flash[:errors].each do |err|%>
+    <p><%=err%></p>
+  <%end%>
+<%end%>
 <h3>Log in to Existing</h3>
 <%= form_tag( "/login" ) do%>
   <%= label_tag (:email) %>
-  <%= text_field_tag (:email) %>
+  <%= email_field_tag :email,nil,:required => true %>
   <%= label_tag (:password) %>
-  <%= password_field_tag (:password) %>
-  <%= radio_button_tag  :user_type, "Hiring Manager" %>
+  <%= password_field_tag :password,nil,:required => true %>
+  <%= radio_button_tag  :user_type, "Hiring Manager",:required => true %>
   <%= label_tag (:Hiring_Manager) %>
-  <%= radio_button_tag  :user_type, "Job Seeker" %>
+  <%= radio_button_tag  :user_type, "Job Seeker",:required => true %>
   <%= label_tag (:Job_seeker) %>
    <%= submit_tag "Submit" %>
 <% end %>
