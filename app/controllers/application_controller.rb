@@ -10,4 +10,6 @@ class ApplicationController < ActionController::Base
     @user_type = session[:user_type]
   end
 
+  
+
 end
