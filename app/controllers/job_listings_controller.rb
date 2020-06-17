@@ -4,6 +4,7 @@ class JobListingsController < ApplicationController
     @job_listings = JobListing.where("job_filled_status = ?",false).paginate(page: params[:page], per_page: 15)
 
   end
+  
   def show
     @job_listing = JobListing.find(params[:id])
   end
