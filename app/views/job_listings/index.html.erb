@@ -1,4 +1,5 @@
 <h3>Job listings</h3>
+<%= will_paginate @job_listings%>
 <ul>
 <%@job_listings.each do |job|%>
  <li><%= link_to  job.title, job %></li>

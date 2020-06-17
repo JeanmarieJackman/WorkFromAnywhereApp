@@ -1,19 +1,47 @@
 <%= form_for( @hiring_manager , remote: true) do |f| %>
 <%end%>
 <%= form_for( @hiring_manager , remote: true) do |f| %>
-  <%=f.label :name%>
-  <%=f.text_field :name, :required => true%>
-  <%=f.label :email%>
-  <%=f.text_field :email,:required => true %>
-  <%=f.label :password%>
-  <%=f.password_field :password, :required => true%>
-  <%=f.label :company%>
-  <%=f.text_field :company, :required => true%>
-  <%=f.label :phone%>
-  <%=f.text_field :phone,:required => true%>
-  <%=f.label :address%>
-  <%=f.text_field :address,:required => true%>
-  <%=f.label :fax%>
-  <%=f.text_field :fax%>
+  <div class="form-group row">
+  <%=f.label :name, :class=>"col-sm-2 col-form-label"%>
+    <div class="col-sm-8">
+    <%=f.text_field :name,:required=>true,:class=>"form-control"%>
+    </div>
+  </div>
+  <div class="form-group row">
+  <%=f.label :email, :class=>"col-sm-2 col-form-label"%>
+    <div class="col-sm-8">
+      <%=f.text_field :email,:required => true,:class=>"form-control" %>
+    </div>
+  </div>
+  <div class="form-group row">
+  <%=f.label :password, :class=>"col-sm-2 col-form-label"%>
+    <div class="col-sm-8">
+      <%=f.password_field :password, :required => true,:class=>"form-control"%>
+    </div>
+  </div>
+  <div class="form-group row">
+  <%=f.label :company, :class=>"col-sm-2 col-form-label"%>
+    <div class="col-sm-8">
+      <%=f.text_field :company,:required=>true,:class=>"form-control"%>
+    </div>
+  </div>
+  <div class="form-group row">
+  <%=f.label :phone, :class=>"col-sm-2 col-form-label"%>
+    <div class="col-sm-8">
+      <%=f.text_field :phone,:required=>true,:class=>"form-control"%>
+    </div>
+  </div>
+  <div class="form-group row">
+  <%=f.label :address, :class=>"col-sm-2 col-form-label"%>
+    <div class="col-sm-8">
+      <%=f.text_field :address,:required=>true,:class=>"form-control"%>
+    </div>
+  </div>
+  <div class="form-group row">
+  <%=f.label :fax, :class=>"col-sm-2 col-form-label"%>
+    <div class="col-sm-8">
+      <%=f.text_field :fax,:class=>"form-control"%>
+    </div>
+  </div>
   <%=f.submit%>
 <% end %>

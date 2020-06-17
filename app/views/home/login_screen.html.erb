@@ -1,34 +1,54 @@
 
+<div class="row">
+  <%if flash[:errors]%>
+    <%flash[:errors].each do |err|%>
+      <p><%=err%></p>
+    <%end%>
+  <%end%>
+</div>
+<div class="row" style="margin-top:8em;">
+<div class="col-sm">
 <h3>Create Profile</h3>
 <%= form_tag("/redirecting") do %>
 <%end%>
 <%= form_tag("/redirecting") do %>
-  <%= label_tag (:email) %>
-  <%= email_field_tag :email,nil,:required => true %>
-  <%= label_tag (:password) %>
-  <%= password_field_tag :password,nil,:required => true %>
+  <div class="form-group">
+    <%= label_tag (:email) %>
+    <%= email_field_tag :email,nil,:required => true,:class=>"form-control" %>
+  </div>
+  <div class="form-group">
+    <%= label_tag (:password) %>
+    <%= password_field_tag :password,nil,:required => true,:class=>"form-control" %>
+  </div>
+  <div class="form-group">
   <%= radio_button_tag  :user_type, "Hiring Manager",:required => true %>
   <%= label_tag (:Hiring_Manager) %>
   <%= radio_button_tag  :user_type, "Job Seeker",:required => true %>
   <%= label_tag (:Job_seeker) %>
+  </div>
   <%= submit_tag "Submit" %>
 <% end %>
 <br>
 <br>
-<%if flash[:errors]%>
-  <%flash[:errors].each do |err|%>
-    <p><%=err%></p>
-  <%end%>
-<%end%>
+</div>
+<div class="col-sm">
 <h3>Log in to Existing</h3>
 <%= form_tag( "/login" ) do%>
+  <div class="form-group">
   <%= label_tag (:email) %>
-  <%= email_field_tag :email,nil,:required => true %>
+  <%= email_field_tag :email,nil,:required => true,:class=>"form-control"  %>
+  </div>
+  <div class="form-group">
   <%= label_tag (:password) %>
-  <%= password_field_tag :password,nil,:required => true %>
+  <%= password_field_tag :password,nil,:required => true,:class=>"form-control"  %>
+  </div>
+  <div class="form-group">
   <%= radio_button_tag  :user_type, "Hiring Manager",:required => true %>
   <%= label_tag (:Hiring_Manager) %>
   <%= radio_button_tag  :user_type, "Job Seeker",:required => true %>
   <%= label_tag (:Job_seeker) %>
+  </div>
    <%= submit_tag "Submit" %>
 <% end %>
+</div>
+</div>
