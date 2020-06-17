@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   post '/redirecting', to: "home#redirecting"
   post '/login', to: "home#login"
   post '/logout', to: "home#logout"
+  post 'job_listings/fill_position/:id',to: "job_listings#fill_position", as:"fill_position"
   resources :job_applications
   resources :job_listings
   resources :hiring_managers

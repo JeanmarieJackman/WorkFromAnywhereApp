@@ -37,6 +37,7 @@ class HomeController < ApplicationController
         flash[:errors] = ["Credentials could not be found"]
       end
     end
+    redirect_to login_screen_path
   end
 
   def logout

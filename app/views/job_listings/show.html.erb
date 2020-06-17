@@ -1,15 +1,21 @@
 <h3><%=@job_listing.title%></h3>
-<h5>Company: <%=@job_listing.hiring_manager.company%></h5>
-<h5>Contact: <%=@job_listing.hiring_manager.name%></h5>
-<h5>Phone: <%=@job_listing.hiring_manager.phone%></h5>
-<h5>Fax: <%=@job_listing.hiring_manager.fax%></h5>
-<h5>Website: <%=@job_listing.hiring_manager.website_url%></h5>
-<h5>Address: <%=@job_listing.hiring_manager.address%></h5>
+<h3>Company: <%=@job_listing.hiring_manager.company%></h3>
+<h3>Contact: <%=@job_listing.hiring_manager.name%></h3>
+<h3>Phone: <%=@job_listing.hiring_manager.phone%></h3>
+<h3>Fax: <%=@job_listing.hiring_manager.fax%></h3>
+<h3>Website: <%=@job_listing.hiring_manager.website_url%></h3>
+<h3>Address: <%=@job_listing.hiring_manager.address%></h3>
 <br>
 <br>
 
   <%if @user_type == "HR"%>
-    <h3>Applicants</h3>
+    <%if @job_listing.job_filled_status%>
+      <h3>Job has been filled already</h3>
+    <%else%>
+      <%= button_to  "Fill Position",fill_position_path(@job_listing)%>
+    <%end%>
+
+    <h3>Number of Applicants <%=@job_listing.job_seekers.count%></h3>
     <ul>
       <%@job_listing.job_seekers.each do |job_seeker|%>
         <li><%= link_to  "#{job_seeker.name} - #{job_seeker.title_tagline}", job_seeker %></li>
@@ -18,11 +24,15 @@
   <%end%>
 
   <%if @user_type == "JS"%>
-    <%= form_tag( job_applications_path) do %>
-      <%= hidden_field_tag "job_application[job_listing_id]", @job_listing.id %>   
-      <%= hidden_field_tag "job_application[job_seeker_id]", @current_user.id %>     
-      <%= submit_tag "Apply" %>
-    <% end %>
+    <%if @current_user.job_listings.include?(@job_listing)%>
+        <h3>***You have already applied for this job***<h3>
+    <%else%>
+      <%= form_tag( job_applications_path) do %>
+        <%= hidden_field_tag "job_application[job_listing_id]", @job_listing.id %>   
+        <%= hidden_field_tag "job_application[job_seeker_id]", @current_user.id %>     
+        <%= submit_tag "Apply" %>
+      <% end %>
+    <%end%>
   <%end%>
 
 
