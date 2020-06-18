@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  skip_before_action :auth_user, only: [:welcome,:login_screen, :redirecting,:login]
   def welcome
 
   end

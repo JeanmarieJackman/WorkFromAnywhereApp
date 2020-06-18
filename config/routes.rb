@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get '/', to: "home#welcome"
+  root to: "home#welcome"
   get '/login_screen', to: "home#login_screen"
   post '/redirecting', to: "home#redirecting"
   post '/login', to: "home#login"
