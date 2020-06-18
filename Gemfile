@@ -57,3 +57,4 @@ gem "faker", "~> 2.12"
 gem 'bootstrap', '~> 4.5.0'
 gem 'jquery-rails'
 gem "will_paginate", "~> 3.3"
+gem 'will_paginate-bootstrap'
