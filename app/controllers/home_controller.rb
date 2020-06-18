@@ -12,9 +12,19 @@ class HomeController < ApplicationController
     session[:registering_email] = params[:email]
     session[:registering_password] = params[:password]
     if(params[:user_type]== "Hiring Manager")
-      redirect_to new_hiring_manager_path
+      if(HiringManager.find_by(email:params[:email]))
+        flash[:errors] = ["Email is being used"]
+        redirect_to login_screen_path
+      else
+        redirect_to new_hiring_manager_path
+      end
     elsif (params[:user_type]== "Job Seeker")
-      redirect_to new_job_seeker_path
+      if(JobSeeker.find_by(email:params[:email]))
+        flash[:errors] = ["Email is being used"]
+        redirect_to login_screen_path
+      else
+        redirect_to new_job_seeker_path
+      end
     end
   end
 

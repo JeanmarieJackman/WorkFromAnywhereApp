@@ -1,5 +1,5 @@
 class JobSeekersController < ApplicationController
-  skip_before_action :auth_user, only: [:index]
+  skip_before_action :auth_user, only: [:index,:new,:create]
   before_action :get_job_seeker,only: [:show,:edit,:update,:destroy]
   
   def index 
@@ -7,6 +7,10 @@ class JobSeekersController < ApplicationController
   end
 
   def show 
+
+    if @user_type == "JS" && @job_seeker != @current_user
+      redirect_to job_seeker_path(@current_user)
+    end
   end
 
   def new 

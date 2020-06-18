@@ -1,5 +1,5 @@
 class HiringManagersController < ApplicationController
-
+  skip_before_action :auth_user, only: [:index,:new,:create]
   before_action :get_hiring_manager , only: [:show,:edit,:update,:destroy]
 
   def show

@@ -24,7 +24,6 @@ class ApplicationController < ActionController::Base
   end 
 
   def redirect_home
-
     if @current_user && current_page?(root_path)
       if @user_type == "HR"
         redirect_to hiring_manager_path(@current_user)
