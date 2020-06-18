@@ -1,7 +1,15 @@
-<h3>Job listings</h3>
-<%= will_paginate @job_listings %>
+<h2>Job listings</h2>
+<style>
+
+</style>
 <ul>
 <%@job_listings.each do |job|%>
  <li><%= link_to  job.title, job %></li>
 <%end%>
 </ul>
+
+<ul class = "footer">
+    <ul>
+        <li><%= will_paginate @job_listings %></li>
+    </ul>
+</footer>
