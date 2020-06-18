@@ -13,11 +13,11 @@
 
 <%if @user_type == "JS"%>
 
-<%= link_to  "Explore Jobs", job_listings_path%><br/>
-<%= link_to  "Edit Profile", edit_job_seeker_path(@job_seeker) %>
+<%= link_to  "Explore Jobs", job_listings_path,:class=>"btn btn-primary"%>
+<%= link_to  "Edit Profile", edit_job_seeker_path(@job_seeker),:class=>"btn btn-primary" %>
 <%= form_tag( 'path' , remote: true) do %>
 <% end %>
-<%= button_to  "Delete Profile", @job_seeker, method: :delete %>
+<%= button_to  "Delete Profile", @job_seeker, method: :delete ,:class=>"btn btn-danger"%>
 
 <%if @job_seeker.job_listings.count > 0 %>
   <h2>Jobs Applied</h2>

@@ -44,7 +44,7 @@ end
 
 
 hiring_managers.each do |h|
-  rand(1..10).times {
+  rand(1..3).times {
     job_listing << JobListing.create(
       title: "Seeking #{Faker::Company.profession}",
       start_date: Faker::Date.forward(360),

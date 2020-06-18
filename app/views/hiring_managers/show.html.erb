@@ -9,11 +9,12 @@
  <h3>fax: <%=@hiring_manager.fax.empty? ? "N/A" : @hiring_manager.fax %></h3>
  <br>
 <%if @user_type == "HR"%>
-<%= link_to  "Create New Job Listing", new_job_listing_path %>
-<%= link_to  "Edit Profile", edit_hiring_manager_path(@hiring_manager) %>
+<%= link_to  "Explore Job Seekers", job_seekers_path,:class=>"btn btn-primary"%>
+<%= link_to  "Create New Job Listing", new_job_listing_path,:class=>"btn btn-primary" %>
+<%= link_to  "Edit Profile", edit_hiring_manager_path(@hiring_manager),:class=>"btn btn-primary" %>
 <%= form_tag( 'path' , remote: true) do %>
 <% end %>
-<%= button_to  "Delete Profile", @hiring_manager, method: :delete %>
+<%= button_to  "Delete Profile", @hiring_manager, method: :delete,:class=>"btn btn-danger" %>
 <br/>
 <br/>
 <%if @hiring_manager.job_listings.count > 0 %>
