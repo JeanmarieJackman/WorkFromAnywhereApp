@@ -41,6 +41,7 @@ class HiringManagersController < ApplicationController
 
   def destroy 
     @hiring_manager.destroy
+    redirect_to logout_path
   end
 
   private 

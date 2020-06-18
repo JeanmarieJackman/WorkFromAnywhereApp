@@ -1,7 +1,7 @@
 class JobListingsController < ApplicationController
-
+  skip_before_action :auth_user, only: [:index]
   def index 
-    @job_listings = JobListing.where("job_filled_status = ?",false)
+    @job_listings = JobListing.where("job_filled_status = ?",false).paginate(page: params[:page], per_page: 15)
   end
 
   def show

@@ -12,6 +12,8 @@
     <%if @job_listing.job_filled_status%>
       <h3>Job has been filled already</h3>
     <%else%>
+      <%= form_tag( 'path' , remote: true) do |f| %>
+      <% end %>
       <%= button_to  "Fill Position",fill_position_path(@job_listing)%>
     <%end%>
 
@@ -27,12 +29,15 @@
     <%if @current_user.job_listings.include?(@job_listing)%>
         <h3>***You have already applied for this job***<h3>
     <%else%>
-      <%= form_tag( job_applications_path) do %>
+        <%= form_tag( job_applications_path) do %>
+        <%end%>
+        <%= form_tag( job_applications_path) do %>
         <%= hidden_field_tag "job_application[job_listing_id]", @job_listing.id %>   
         <%= hidden_field_tag "job_application[job_seeker_id]", @current_user.id %>     
         <%= submit_tag "Apply" %>
-      <% end %>
+        <% end %>
     <%end%>
   <%end%>
 
 
+        

@@ -7,19 +7,24 @@
  <h3>addres: <%=@hiring_manager.address%></h3>
 
  <h3>fax: <%=@hiring_manager.fax.empty? ? "N/A" : @hiring_manager.fax %></h3>
-
  <br>
+<%if @user_type == "HR"%>
 <%= link_to  "Create New Job Listing", new_job_listing_path %>
 <%= link_to  "Edit Profile", edit_hiring_manager_path(@hiring_manager) %>
+<%= form_tag( 'path' , remote: true) do %>
+<% end %>
 <%= button_to  "Delete Profile", @hiring_manager, method: :delete %>
 <br/>
 <br/>
-<h1>Job Listings</h1>
-<ul>
-  <%@hiring_manager.job_listings.each do |listing|%>
-    <li>
-    <%= link_to  listing.title, listing %> # of applications <span><%=listing.job_applications.count%></span> 
-    <%="**Filled**" if listing.job_filled_status%>
-    </li>
-  <%end%>
-<ul>
+<%if @hiring_manager.job_listings.count > 0 %>
+  <h1>Job Listings</h1>
+  <ul>
+    <%@hiring_manager.job_listings.each do |listing|%>
+      <li>
+      <%= link_to  listing.title, listing %> # of applications <span><%=listing.job_applications.count%></span> 
+      <%="**Filled**" if listing.job_filled_status%>
+      </li>
+    <%end%>
+  <ul>
+<%end%>
+<%end%>

@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  skip_before_action :auth_user, only: [:welcome,:login_screen, :redirecting,:login]
   def welcome
 
   end
@@ -9,7 +10,7 @@ class HomeController < ApplicationController
 
   def redirecting
     session[:registering_email] = params[:email]
-    session[:registering_password] = params[:email]
+    session[:registering_password] = params[:password]
     if(params[:user_type]== "Hiring Manager")
       redirect_to new_hiring_manager_path
     elsif (params[:user_type]== "Job Seeker")
@@ -24,6 +25,7 @@ class HomeController < ApplicationController
         session[:user_id] = job_seeker.id
         session[:user_type] = "JS"
         redirect_to job_seeker_path(job_seeker)
+        return 
       else
         flash[:errors] = ["Credentials could not be found"]
       end
@@ -33,6 +35,7 @@ class HomeController < ApplicationController
         session[:user_id] = hiring_manager.id
         session[:user_type] = "HR"
         redirect_to hiring_manager_path(hiring_manager)
+        return
       else
         flash[:errors] = ["Credentials could not be found"]
       end
@@ -41,7 +44,9 @@ class HomeController < ApplicationController
   end
 
   def logout
-
+    session.delete(:user_id)
+    session.delete(:user_type)
+    redirect_to '/'
   end
  
 end

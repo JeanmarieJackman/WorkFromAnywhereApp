@@ -15,16 +15,18 @@
 
 <%= link_to  "Explore Jobs", job_listings_path%><br/>
 <%= link_to  "Edit Profile", edit_job_seeker_path(@job_seeker) %>
+<%= form_tag( 'path' , remote: true) do %>
+<% end %>
 <%= button_to  "Delete Profile", @job_seeker, method: :delete %>
 
-
-<h2>Jobs Applied</h2>
-<ul>
-  <%@job_seeker.job_listings.each do |job|%>
-    <li>
-      <%= link_to  job.title, job %>
-    </li>
-  <%end%>
-</ul>
-
+<%if job_seeker.job_listings.count > 0 %>
+  <h2>Jobs Applied</h2>
+  <ul>
+    <%@job_seeker.job_listings.each do |job|%>
+      <li>
+        <%= link_to  job.title, job %>
+      </li>
+    <%end%>
+  </ul>
+<%end%>
 <%end%>

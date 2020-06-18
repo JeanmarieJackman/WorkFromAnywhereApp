@@ -1,9 +1,9 @@
 class JobSeekersController < ApplicationController
-
+  skip_before_action :auth_user, only: [:index]
   before_action :get_job_seeker,only: [:show,:edit,:update,:destroy]
   
   def index 
-    @job_seekers = JobSeeker.all
+    @job_seekers = JobSeeker.all.paginate(page: params[:page], per_page: 15)
   end
 
   def show 
@@ -40,7 +40,7 @@ class JobSeekersController < ApplicationController
 
   def destroy
     @job_seeker.destroy
-    redirect_to job_seekers_path
+    redirect_to logout_path
   end
 
   private 
